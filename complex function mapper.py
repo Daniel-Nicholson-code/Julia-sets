@@ -7,7 +7,7 @@ from PIL import Image
 #variables
 width = 250
 height = 250
-domain = 10
+domain = 3
 
 #keeping track of how long the program took to run
 startTime = time.time()
@@ -15,7 +15,7 @@ startTime = time.time()
 #the function that is being mapped
 def f(posx,posy):
   z = complex(posx,posy)
-  z = z*z*z - 10
+  z = (2*z - 5) / (3*z - 2)
   return z.real,z.imag,abs(z)
 
 #generating a blank image
@@ -34,10 +34,10 @@ for x in range(width):
 
     #converts the x,y of the output into a colour
     #(using precomputed values for sine and cosine)
-    mod = 81.1875*min(mod*0.25,1)
-    red = int(abs(math.atan2(posfy*0.866-posfx*0.5,posfx*-0.866-posfy*0.5))*mod)
-    green = int(abs(math.atan2(posfy*-0.866-posfx*0.5,posfx*0.866-posfy*0.5))*mod)
-    blue = int(abs(math.atan2(posfx,posfy))*mod)
+    mod = 81.1875*mod*0.25
+    red = min(int(abs(math.atan2(posfy*0.866-posfx*0.5,posfx*-0.866-posfy*0.5))*mod), 255)
+    green = min(int(abs(math.atan2(posfy*-0.866-posfx*0.5,posfx*0.866-posfy*0.5))*mod), 255)
+    blue = min(int(abs(math.atan2(posfx,posfy))*mod), 255)
 
     #fills in the pixel the colour of the output
     image.putpixel((x,y),(red,green,blue))
