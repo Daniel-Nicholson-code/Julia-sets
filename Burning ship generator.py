@@ -7,9 +7,9 @@ from PIL import Image
 #variables
 width = 400
 height = 400
-domain = 1.2
+domain = 0.045
 maxI = 300
-cameraPos = complex(-0.6,0.5)
+cameraPos = complex(-1.75,0.035)
 
 #keeping track of how long the program took to run
 startTime = time.perf_counter()
