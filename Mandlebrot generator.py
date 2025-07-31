@@ -7,9 +7,9 @@ from PIL import Image
 #variables
 width = 400
 height = 400
-domain = 1.4
+domain = 1.2
 maxI = 300
-cameraPos = complex(-0.75,0)
+cameraPos = complex(-0.747,0.1)
 
 #keeping track of how long the program took to run
 startTime = time.perf_counter()
@@ -51,12 +51,12 @@ for x in range(width):
       i = i/maxI
       if i <= 0.05:
         red,green,blue = interpolate(7,4,23,25,14,89,i/0.05)
+      elif i <= 0.2:
+        red,green,blue = interpolate(25,14,89,191,80,63,i/0.15)
       elif i <= 0.5:
-        red,green,blue = interpolate(25,14,89,191,80,63,i/0.45)
-      elif i <= 0.9:
-        red,green,blue = interpolate(191,80,63,254,221,159,i/0.4)
+        red,green,blue = interpolate(191,80,63,254,221,159,i/0.3)
       else:
-        red,green,blue = interpolate(254,221,159,0,0,0,i/0.1)
+        red,green,blue = interpolate(254,221,159,0,0,0,i/0.5)
       image.putpixel((x,y),(red,green,blue))
 
 #displaying how long the program took to run
