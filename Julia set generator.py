@@ -1,4 +1,4 @@
-# Copyright 2024 Daniel Nicholson
+# Copyright 2025 Daniel Nicholson
 # If using my code, please credit me
 
 import math
@@ -65,3 +65,4 @@ print(f"program finished in {(time.perf_counter()-startTime):.3f}s")
 
 #displaying final image
 image.show()
+
